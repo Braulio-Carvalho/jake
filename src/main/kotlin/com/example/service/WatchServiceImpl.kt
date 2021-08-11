@@ -26,7 +26,9 @@ class WatchServiceImpl(private val watchRepository: WatchRepository) : WatchServ
 
     override fun deleteWatchById(id: Long) {
         val watch = watchRepository.findById(id)
-        watchRepository.delete(watch.get())
+        with(watchRepository) {
+            delete(watch.get())
+        }
     }
 
     override fun updateWatch(id: Long, newWatch: WatchDTO): Watch {
@@ -35,7 +37,8 @@ class WatchServiceImpl(private val watchRepository: WatchRepository) : WatchServ
             this.model = newWatch.model
             this.gender = newWatch.gender
         }
-        return watchRepository.save(watch)
+        return watchRepository.update(watch)
+//        return watchRepository.save(watch)
     }
 
 

@@ -20,8 +20,8 @@ class WatchController(private val watchService: WatchService) {
         return watchService.getWatch()
     }
 
-    @Delete
-    fun deleteWatchById(id: Long) {
+    @Delete("/{id}")
+    fun deleteWatchById(@PathVariable id: Long) {
         watchService.deleteWatchById(id)
     }
 
