@@ -5,8 +5,9 @@ import com.example.model.dto.WatchDTO
 import com.example.service.WatchService
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.*
+import io.micronaut.management.endpoint.annotation.Endpoint
 
-
+@Endpoint("ept")
 @Controller("/watches")
 class WatchController(private val watchService: WatchService) {
 
